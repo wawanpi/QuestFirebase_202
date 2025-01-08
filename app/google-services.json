@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "495653484379",
+    "project_id": "belajar-pam-495c3",
+    "storage_bucket": "belajar-pam-495c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495653484379:android:04625cd3dfe46c7972cc7e",
+        "android_client_info": {
+          "package_name": "com.example.pertemuan14"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJS5gyu09t_wLkMQI3E3uayWLrrPcYbMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
