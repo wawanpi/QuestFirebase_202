@@ -1,8 +1,22 @@
 package com.example.pertemuan14.ui.ViewModel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
 import com.example.pertemuan14.model.Mahasiswa
+import com.example.pertemuan14.repository.MahasiswaRepository
 
+class InsertViewModel(
+    private val mhs: MahasiswaRepository
+) :ViewModel(){
+    var uiEvent: InsertUiState by mutableStateOf(InsertUiState())
+        private set
+    var uiState: FromState by mutableStateOf(FromState.Idle)
 
+    //Memperbarui state berdasarkan input pengguna
+
+}
 
 sealed class FromState{
     object Idle : FromState()
