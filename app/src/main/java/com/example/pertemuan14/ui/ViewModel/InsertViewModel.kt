@@ -15,7 +15,11 @@ class InsertViewModel(
     var uiState: FromState by mutableStateOf(FromState.Idle)
 
     //Memperbarui state berdasarkan input pengguna
-
+    fun updateState(mahasiswaEvent: MahasiswaEvent) {
+        uiEvent = uiEvent.copy(
+            insertUiEvent = mahasiswaEvent,
+        )
+    }
 }
 
 sealed class FromState{
