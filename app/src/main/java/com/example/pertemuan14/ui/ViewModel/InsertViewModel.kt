@@ -4,7 +4,12 @@ import com.example.pertemuan14.model.Mahasiswa
 
 
 
-
+sealed class FromState{
+    object Idle : FromState()
+    object Loading : FromState()
+    data class Success(val message: String) : FromState()
+    data class Error(val message: String) : FromState()
+}
 
 data class InsertUiState(
     val insertUiEvent: MahasiswaEvent = MahasiswaEvent(),
