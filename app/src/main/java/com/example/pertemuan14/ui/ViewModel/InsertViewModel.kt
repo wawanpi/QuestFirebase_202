@@ -51,7 +51,14 @@ fun insertMhs() {
         uiState = FromState.Error("Data tidak valid")
     }
 }
+fun resetState() {
+    uiEvent = InsertUiState()
+    uiState = FromState.Idle}
 
+fun resetSnackBarMessage() {
+        uiState = FromState.Idle
+    }
+}
 
 sealed class FromState{
     object Idle : FromState()
