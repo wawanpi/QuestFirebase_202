@@ -4,6 +4,13 @@ import com.example.pertemuan14.model.Mahasiswa
 
 
 
+
+
+data class InsertUiState(
+    val insertUiEvent: MahasiswaEvent = MahasiswaEvent(),
+    val isEntryValid: FromErrorState = FromErrorState(),
+)
+
 data class FromErrorState(
     val nim: String?= null,
     val nama: String?= null,
