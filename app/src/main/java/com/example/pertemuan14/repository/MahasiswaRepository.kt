@@ -14,7 +14,7 @@ interface MahasiswaRepository {
     suspend fun updateMahasiswa(nim: String, mahasiswa: Mahasiswa)
 
     // Menghapus mahasiswa berdasarkan NIM
-    suspend fun deleteMahasiswa(nim: String)
+    suspend fun deleteMahasiswa(mahasiswa: Mahasiswa)
 
     // Mengambil data mahasiswa berdasarkan NIM
     suspend fun getMahasiswabyNim(nim: String): Mahasiswa
