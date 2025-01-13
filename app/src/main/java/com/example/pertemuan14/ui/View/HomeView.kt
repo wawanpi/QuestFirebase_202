@@ -77,6 +77,7 @@ fun HomeScreen(
             modifier = Modifier.padding(innerPadding), // Memberikan padding berdasarkan `Scaffold`
             onDetailClick = onDetailClick, // Aksi ketika item detail mahasiswa diklik
             onDeleteClick = {
+                viewModel.deleteMhs(it) // Menghapus data mahasiswa
                 viewModel.getMhs()         // Memuat ulang data setelah penghapusan
             }
         )
@@ -88,7 +89,7 @@ fun HomeStatus(
     homeUiState: HomeUiState, // UI state yang bisa berupa Loading, Success atau Error
     retryAction: () -> Unit, // Fungsi untuk mencoba lagi setelah error
     modifier: Modifier = Modifier, // Modifier untuk styling tampilan
-    onDeleteClick: (String) -> Unit = {}, // Fungsi untuk handle aksi delete mahasiswa
+    onDeleteClick: (Mahasiswa) -> Unit = {}, // Fungsi untuk handle aksi delete mahasiswa
     onDetailClick: (String) -> Unit // Fungsi untuk handle klik detail mahasiswa
 ) {
     when (homeUiState) {
@@ -153,7 +154,7 @@ fun MhsLayout(
     mahasiswa: List<Mahasiswa>, // List data mahasiswa
     modifier: Modifier = Modifier,
     onDetailClick: (Mahasiswa) -> Unit, // Fungsi untuk tampilkan detail mahasiswa
-    onDeleteClick: (String) -> Unit = {} // Fungsi untuk hapus data mahasiswa
+    onDeleteClick: (Mahasiswa) -> Unit = {} // Fungsi untuk hapus data mahasiswa
 ) {
     // LazyColumn untuk menampilkan list mahasiswa
     LazyColumn(
@@ -179,7 +180,7 @@ fun MhsLayout(
 fun MhsCard(
     mahasiswa: Mahasiswa, // Objek mahasiswa (berisi data seperti nama, nim, dsb)
     modifier: Modifier = Modifier,
-    onDeleteClick: (String) -> Unit = {} // Fungsi yang dipanggil ketika tombol delete di klik
+    onDeleteClick: (Mahasiswa) -> Unit = {} // Fungsi yang dipanggil ketika tombol delete di klik
 ) {
     // Elemen kartu (Card)
     Card(
@@ -205,7 +206,7 @@ fun MhsCard(
                 Spacer(Modifier.weight(1f)) // Spacer fleksibel buat memberi jarak
 
                 // Tombol delete
-                IconButton(onClick = { onDeleteClick(mahasiswa.nim) }) {
+                IconButton(onClick = { onDeleteClick(mahasiswa) }) {
                     Icon(
                         imageVector = Icons.Default.Delete, // Icon trash
                         contentDescription = null, // Tidak perlu deskripsi
