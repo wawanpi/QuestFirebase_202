@@ -28,6 +28,8 @@ class InsertViewModel(
         val errorState = FromErrorState(
             nim = if (event.nim.isEmpty()) "NIM tidak boleh kosong" else null,
             nama = if (event.nama.isEmpty()) "Nama tidak boleh kosong" else null,
+            judul_skripsi = if (event.judul_skripsi.isEmpty()) "Judul Skripsi tidak boleh kosong" else null,
+            dosen_pembimbing = if (event.dosen_pembimbing.isEmpty()) "Dosen Pembimbing tidak boleh kosong" else null,
             jenis_kelamin = if (event.jenis_kelamin.isEmpty()) "Jenis Kelamin tidak boleh kosong" else null,
             alamat = if (event.alamat.isEmpty()) "Alamat tidak boleh kosong" else null,
             kelas = if (event.kelas.isEmpty()) "Kelas tidak boleh kosong" else null,
@@ -75,19 +77,23 @@ data class InsertUiState(
 data class FromErrorState(
     val nim: String?= null,
     val nama: String?= null,
+    val judul_skripsi: String?= null,
+    val dosen_pembimbing: String?= null,
     val jenis_kelamin: String?= null,
     val alamat: String?= null,
     val kelas: String?= null,
     val angkatan: String?= null,
     ){
     fun isValid(): Boolean {
-        return nim == null && nama == null && jenis_kelamin == null && alamat == null && kelas == null && angkatan == null
+        return nim == null && nama == null && judul_skripsi == null  &&  dosen_pembimbing == null &&jenis_kelamin == null && alamat == null && kelas == null && angkatan == null
     }
 }
 
 data class MahasiswaEvent(
     val nim: String = "",
     val nama: String = "",
+    val judul_skripsi: String = "",
+    val dosen_pembimbing: String = "",
     val jenis_kelamin: String = "",
     val alamat: String = "",
     val kelas: String = "",
@@ -96,6 +102,8 @@ data class MahasiswaEvent(
 fun MahasiswaEvent.toMhsModel() : Mahasiswa = Mahasiswa(
     nim = nim,
     nama = nama,
+    judul_skripsi = judul_skripsi,
+    dosen_pembimbing = dosen_pembimbing,
     jenis_kelamin = jenis_kelamin,
     alamat = alamat,
     kelas = kelas,
